@@ -7,7 +7,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-import java.sql.DriverManager;
+
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,7 +18,9 @@ public class GWD {
     public static ThreadLocal<String> browser = new ThreadLocal<>();
 
     public static WebDriver getDriver() {
-       //log da surekli cikan yazilar icin
+        Locale.setDefault(new Locale("EN"));//dil hatasi icin
+        System.setProperty("user.language", "EN");
+
         Logger.getLogger("").setLevel(Level.SEVERE);//log da temizlik
         System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "Error");
 

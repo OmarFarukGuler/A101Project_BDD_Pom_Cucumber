@@ -9,7 +9,7 @@
 #- Siparişi tamamla butonuna tıklayarak, ödeme ekranına gidildiği ,doğru ekrana yönlendiklerini kontrol edecekler.
 Feature: Shopping
 
-  Scenario: User can successfully buy any production.
+  Scenario Outline: User can successfully buy any production.
     Given User navigate to A101 home page
     And   Click to element on the Pom
       | cookies |
@@ -29,24 +29,29 @@ Feature: Shopping
       | sepetiOnayla    |
       | uyeOlmadan      |
     And   Send keys on the Pom
-      | userEmail | lkhtdosrfbwefut@gmail.com |
+      | userEmail | <email> |
     And   Click to element on the Pom
       | devamEt    |
       | newAddress |
     And   Send keys on the Pom
-      | addressTitle | Ev Adresi   |
-      | name         | Mahmut |
-      | lastName     | Kanca       |
-      | phoneNumber  | 5579672287  |
+      | addressTitle | <addressTitle> |
+      | name         | <firstName>    |
+      | lastName     | <lastName>     |
+      | phoneNumber  | <phoneNumber>  |
     And   Select to element on the Pom
       | city     | 39 | childElementCount | 82 |
       | township | 2  | childElementCount | 16 |
       | district | 35 | childElementCount | 96 |
     And   Send keys on the Pom
-      | textArea | Kara uzum habbesi bulvarı lelelele canım sokak No:4 |
+      | textArea | <textArea> |
     And   Click to element on the Pom
       | save      |
       | radio     |
       | saveAndGo |
     Then  Verify to element on the Pom
       | assertKart | Kart |
+
+    Examples:
+      | email                 | addressTitle | firstName | lastName | phoneNumber | textArea                                             |
+      | gndgjhnytrb@gmail.com | İzmir Evim   | Cengizhan | Küçük    | 5589140706  | Orkide caddesi Manolya Sokak Papatya Apartmanı No 8  |
+      | fasfbdfngfb@gmail.com | Muğla Evvvim | Müslüm    | Duman    | 5389656541  | Civciv caddesi Baykuş Sokak Kırlangıç Apartmanı No 8 |
