@@ -6,9 +6,9 @@ import java.sql.*;
 
 public class DBJDBC {
     public static void queryStart() throws SQLException {
-        String url = "jdbc:mysql://db-technostudy.ckr1jisflxpv.us-east-1.rds.amazonaws.com:3306/zz_OFG_PROJE";//hostname,port / db adi
-        String username = "root";//username
-        String password = "'\"-LhCB'.%k[4S]z";//password
+        String url = "********";//hostname,port / db adi
+        String username = "********";//username
+        String password = "********";//password
 
         Connection connection = null;
         Statement statement = null;
